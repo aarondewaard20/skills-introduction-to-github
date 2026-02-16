@@ -13,6 +13,39 @@ _Get started using GitHub in less than an hour._
 
 </header>
 
+---
+
+## 📝 To-Do List Application
+
+This repository now includes a fully-functional **To-Do List web application**! 
+
+### ✨ Quick Start
+
+Navigate to the [`app/`](./app) directory and open `index.html` in your browser to start using the app.
+
+**[View the App README →](./app/README.md)**
+
+### Screenshots
+
+**Initial View:**
+
+![To-Do List App - Initial State](https://github.com/user-attachments/assets/4b253733-ec31-4c0f-9c44-bc023b0e0aa2)
+
+**With Tasks:**
+
+![To-Do List App - With Tasks](https://github.com/user-attachments/assets/b0289ee1-1d8b-4475-b189-216a6986bb3b)
+
+### Features
+- ✅ Add, complete, and delete tasks
+- 🔍 Filter tasks by status (All/Active/Completed)
+- 💾 Automatic data persistence
+- 📱 Fully responsive design
+- 🎨 Beautiful gradient UI
+
+---
+
+
+
 <!--
   <<< Author notes: Step 4 >>>
   Just a historic note: The previous version of this step required responding
