@@ -159,12 +159,39 @@ class TodoApp {
     }
 
     saveTasks() {
-        localStorage.setItem('todoTasks', JSON.stringify(this.tasks));
+        try {
+            localStorage.setItem('todoTasks', JSON.stringify(this.tasks));
+        } catch (error) {
+            console.error('Failed to save tasks to localStorage:', error);
+            // Could show user notification here if desired
+        }
     }
 
     loadTasks() {
-        const tasks = localStorage.getItem('todoTasks');
-        return tasks ? JSON.parse(tasks) : [];
+        try {
+            const tasks = localStorage.getItem('todoTasks');
+            if (!tasks) return [];
+            
+            const parsed = JSON.parse(tasks);
+            // Validate that the parsed data is an array
+            if (!Array.isArray(parsed)) {
+                console.warn('Invalid tasks data in localStorage, resetting to empty array');
+                return [];
+            }
+            
+            // Validate each task has required properties
+            const validTasks = parsed.filter(task => 
+                task && typeof task === 'object' && 
+                typeof task.id === 'number' && 
+                typeof task.text === 'string' &&
+                typeof task.completed === 'boolean'
+            );
+            
+            return validTasks;
+        } catch (error) {
+            console.error('Failed to load tasks from localStorage:', error);
+            return [];
+        }
     }
 }
 
